@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEIKA | Tecnologia e Soluções Digitais</title>
+    <title>HEIKA | Soluções Digitais Corporativas</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -33,17 +33,21 @@
                     },
                     backgroundImage: {
                         'grid-pattern': 'linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                     },
                     animation: {
-                        'blob-bounce': 'blob-bounce 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
+                        'blob-bounce': 'blob-bounce 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
+                        'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         'blob-bounce': {
                             '0%': { transform: 'translate(0, 0) scale(1)' },
-                            '50%': { transform: 'translate(20px, -30px) scale(1.1)' },
-                            '100%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '50%': { transform: 'translate(30px, -40px) scale(1.05)' },
+                            '100%': { transform: 'translate(-30px, 30px) scale(0.95)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
                         }
                     }
                 }
@@ -52,21 +56,21 @@
     </script>
     <style>
         body { background-color: #08080B; color: #FFFFFF; overflow-x: hidden; }
-        ::selection { background-color: rgba(37, 99, 235, 0.3); color: #FFFFFF; }
+        ::selection { background-color: rgba(37, 99, 235, 0.4); color: #FFFFFF; }
         
-        /* Sistema de Abas SPA */
+        /* SPA System */
         .page-section { display: none; opacity: 0; }
-        .page-section.active { display: block; animation: fadeIn 0.4s ease-out forwards; }
+        .page-section.active { display: block; animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(15px); filter: blur(4px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
-        /* Efeitos de Intersecção (Scroll) */
+        /* Scroll Reveal Interactions */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active-reveal {
@@ -77,68 +81,69 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* Estilização Premium de Gradientes em Texto */
+        /* Typography Gradients */
         .text-gradient {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%);
+            background-image: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
         }
-
-        /* Cards Hover Premium */
+        
+        /* Enterprise UI Cards */
         .premium-card {
             background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(16px);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .premium-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(37, 99, 235, 0.4);
-            box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.5);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.15);
             background: linear-gradient(180deg, rgba(37, 99, 235, 0.05) 0%, rgba(255,255,255,0.01) 100%);
         }
 
-        /* Botão Primário Premium */
+        /* Button Architecture */
         .btn-primary {
             position: relative;
             background: #2563EB;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 0 20px rgba(37, 99, 235, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-primary:hover {
             background: #3B82F6;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 0 30px rgba(37, 99, 235, 0.5);
-            transform: translateY(-1px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 8px 30px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #08080B; }
-        ::-webkit-scrollbar-thumb { background: #1A1A1F; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2A2A2F; }
+        ::-webkit-scrollbar-thumb { background: #1A1A1F; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col font-sans">
 
-    <nav class="fixed w-full z-50 top-0 bg-heika-black/70 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-            <a href="#" onclick="navigate('home')" class="text-2xl font-bold tracking-tight text-heika-white group flex items-center gap-1">
-                HEIKA<span class="text-heika-blue group-hover:text-heika-blueLight transition-colors">.</span>
+    <nav class="fixed w-full z-50 top-0 bg-heika-black/70 backdrop-blur-2xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-16 md:h-24 flex items-center justify-between">
+            
+            <a href="#" onclick="navigate('home')" class="group flex items-center justify-center shrink-0">
+                <img src="logo.png" alt="HEIKA" class="h-8 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 group-hover:brightness-125">
             </a>
 
             <div class="hidden md:flex items-center gap-8">
-                <ul class="flex items-center gap-6 text-sm font-medium text-heika-gray">
-                    <li><a href="#" onclick="navigate('home')" class="hover:text-heika-white transition-all duration-200 nav-link" data-target="home">Início</a></li>
-                    <li><a href="#" onclick="navigate('solucoes')" class="hover:text-heika-white transition-all duration-200 nav-link" data-target="solucoes">Soluções</a></li>
-                    <li><a href="#" onclick="navigate('servicos')" class="hover:text-heika-white transition-all duration-200 nav-link" data-target="servicos">Serviços</a></li>
-                    <li><a href="#" onclick="navigate('projetos')" class="hover:text-heika-white transition-all duration-200 nav-link" data-target="projetos">Projetos</a></li>
-                    <li><a href="#" onclick="navigate('sobre')" class="hover:text-heika-white transition-all duration-200 nav-link" data-target="sobre">Sobre nós</a></li>
-                    <li><a href="#" onclick="navigate('equipe')" class="hover:text-heika-white transition-all duration-200 nav-link" data-target="equipe">Equipe</a></li>
+                <ul class="flex items-center gap-7 text-sm font-medium text-heika-gray tracking-wide">
+                    <li><a href="#" onclick="navigate('home')" class="hover:text-heika-white transition-all duration-200 nav-link relative" data-target="home">Início</a></li>
+                    <li><a href="#" onclick="navigate('solucoes')" class="hover:text-heika-white transition-all duration-200 nav-link relative" data-target="solucoes">Soluções</a></li>
+                    <li><a href="#" onclick="navigate('servicos')" class="hover:text-heika-white transition-all duration-200 nav-link relative" data-target="servicos">Serviços</a></li>
+                    <li><a href="#" onclick="navigate('projetos')" class="hover:text-heika-white transition-all duration-200 nav-link relative" data-target="projetos">Projetos</a></li>
+                    <li><a href="#" onclick="navigate('sobre')" class="hover:text-heika-white transition-all duration-200 nav-link relative" data-target="sobre">Sobre nós</a></li>
+                    <li><a href="#" onclick="navigate('equipe')" class="hover:text-heika-white transition-all duration-200 nav-link relative" data-target="equipe">Equipe</a></li>
                 </ul>
-                <div class="flex items-center gap-5 border-l border-white/10 pl-5">
-                    <a href="#" onclick="navigate('contato')" class="text-sm font-medium text-heika-gray hover:text-heika-white transition-colors">Falar com a equipe</a>
-                    <a href="#" onclick="navigate('contato')" class="btn-primary text-white px-5 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2 group">
-                        Orçamento <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                <div class="flex items-center gap-6 border-l border-white/10 pl-6">
+                    <a href="#" onclick="navigate('contato')" class="text-sm font-semibold text-heika-gray hover:text-heika-white transition-colors">Falar com Consultor</a>
+                    <a href="#" onclick="navigate('contato')" class="btn-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 group">
+                        Iniciar Projeto <i class="ph ph-rocket-launch group-hover:translate-y-[-2px] group-hover:translate-x-[2px] transition-transform"></i>
                     </a>
                 </div>
             </div>
@@ -148,521 +153,503 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-heika-darkGray/95 backdrop-blur-xl border-b border-white/5 px-6 py-4 absolute w-full left-0 top-full shadow-2xl">
-            <ul class="flex flex-col gap-4 text-heika-gray font-medium">
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0A0A0E]/98 backdrop-blur-2xl border-b border-white/5 px-6 py-6 absolute w-full left-0 top-full shadow-2xl">
+            <ul class="flex flex-col gap-5 text-heika-gray font-medium text-lg">
                 <li><a href="#" onclick="navigate('home'); toggleMobileMenu()" class="block py-1 hover:text-heika-white transition-colors">Início</a></li>
                 <li><a href="#" onclick="navigate('solucoes'); toggleMobileMenu()" class="block py-1 hover:text-heika-white transition-colors">Soluções</a></li>
                 <li><a href="#" onclick="navigate('servicos'); toggleMobileMenu()" class="block py-1 hover:text-heika-white transition-colors">Serviços</a></li>
                 <li><a href="#" onclick="navigate('projetos'); toggleMobileMenu()" class="block py-1 hover:text-heika-white transition-colors">Projetos</a></li>
                 <li><a href="#" onclick="navigate('sobre'); toggleMobileMenu()" class="block py-1 hover:text-heika-white transition-colors">Sobre nós</a></li>
                 <li><a href="#" onclick="navigate('equipe'); toggleMobileMenu()" class="block py-1 hover:text-heika-white transition-colors">Equipe</a></li>
-                <li class="pt-4 mt-2 border-t border-white/10">
-                    <a href="#" onclick="navigate('contato'); toggleMobileMenu()" class="flex justify-center items-center gap-2 w-full btn-primary text-white py-3 rounded-lg text-sm">
-                        Solicitar orçamento <i class="ph ph-arrow-right"></i>
+                <li class="pt-6 mt-2 border-t border-white/10">
+                    <a href="#" onclick="navigate('contato'); toggleMobileMenu()" class="flex justify-center items-center gap-2 w-full btn-primary text-white py-4 rounded-xl text-base font-semibold">
+                        Iniciar Arquitetura <i class="ph ph-arrow-right"></i>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <main class="flex-grow pt-20">
+    <main class="flex-grow pt-24">
         
         <div id="home" class="page-section active">
-            <section class="relative w-full min-h-[95vh] flex flex-col items-center justify-center overflow-hidden">
-                <div class="absolute inset-0 bg-grid-pattern bg-[size:50px_50px] opacity-[0.1]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[500px] bg-heika-blue/20 blur-[150px] rounded-full pointer-events-none animate-blob-bounce"></div>
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#08080B]/50 to-[#08080B]"></div>
+            
+            <section class="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pb-20">
+                <div class="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-[0.08]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[600px] bg-heika-blue/20 blur-[180px] rounded-full pointer-events-none animate-blob-bounce"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#08080B_80%)] pointer-events-none"></div>
                 
-                <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-10">
-                    <div class="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm text-heika-gray text-xs md:text-sm font-medium mb-8 hover:bg-white/[0.05] hover:border-heika-blue/30 transition-all cursor-default">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-heika-blue opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-heika-blue"></span>
-                        </span>
-                        A Nova Engenharia Digital
+                <div class="relative z-10 max-w-6xl mx-auto px-6 text-center mt-12 flex flex-col items-center">
+                    
+                    <div class="reveal relative mb-12 animate-float">
+                        <div class="absolute inset-0 bg-heika-blue/30 blur-[60px] rounded-full pointer-events-none"></div>
+                        <img src="logo.png" alt="HEIKA SOLUCTIONS LTDA" class="relative z-10 h-28 md:h-40 lg:h-48 w-auto object-contain drop-shadow-[0_0_40px_rgba(37,99,235,0.5)] filter brightness-110">
                     </div>
                     
-                    <h1 class="reveal delay-100 text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-8 leading-[1.05]">
-                        <span class="text-gradient">Tecnologia escalável</span> <br class="hidden md:block" />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-heika-blue via-heika-blueLight to-blue-200">para negócios reais.</span>
+                    <div class="reveal delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-heika-blue/30 bg-heika-blue/10 backdrop-blur-md text-heika-blue text-xs md:text-sm font-semibold mb-8 uppercase tracking-widest shadow-[0_0_30px_rgba(37,99,235,0.15)]">
+                        Infraestrutura de Nível Corporativo
+                    </div>
+                    
+                    <h1 class="reveal delay-100 text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight mb-8 leading-[1.05] mx-auto max-w-5xl">
+                        <span class="text-gradient">Arquitetura de software</span> <br class="hidden lg:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-heika-blueLight to-heika-blue">para líderes de mercado.</span>
                     </h1>
                     
-                    <p class="reveal delay-200 text-lg md:text-xl text-heika-gray/80 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-                        Esquecemos os templates e amadorismos. Desenvolvemos sistemas, infraestrutura corporativa e interfaces premium focadas em segurança, performance e conversão absoluta.
+                    <p class="reveal delay-200 text-lg md:text-2xl text-heika-gray/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                        Projetamos ecossistemas digitais de alta disponibilidade. De arquiteturas multi-tenant e DevOps avançado a interfaces rigorosamente otimizadas para conversão global.
                     </p>
                     
-                    <div class="reveal delay-300 flex flex-col sm:flex-row items-center justify-center gap-5">
-                        <button onclick="navigate('contato')" class="w-full sm:w-auto btn-primary px-8 py-4 rounded-lg font-medium flex items-center justify-center gap-2 text-base group">
-                            Iniciar Projeto <i class="ph ph-arrow-right group-hover:translate-x-1.5 transition-transform duration-300"></i>
+                    <div class="reveal delay-300 flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
+                        <button onclick="navigate('contato')" class="w-full sm:w-auto btn-primary px-10 py-5 rounded-xl font-bold flex items-center justify-center gap-3 text-base shadow-2xl group">
+                            Solicitar Análise Técnica <i class="ph ph-arrow-right group-hover:translate-x-1.5 transition-transform duration-300"></i>
                         </button>
-                        <button onclick="navigate('projetos')" class="w-full sm:w-auto px-8 py-4 rounded-lg font-medium text-heika-white border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all flex items-center justify-center gap-2 backdrop-blur-sm group">
-                            <i class="ph ph-code text-heika-gray group-hover:text-heika-white transition-colors"></i> Ver nosso trabalho
+                        <button onclick="navigate('projetos')" class="w-full sm:w-auto px-10 py-5 rounded-xl font-semibold text-heika-white border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-all flex items-center justify-center gap-3 backdrop-blur-md group shadow-xl">
+                            <i class="ph ph-terminal-window text-heika-gray group-hover:text-white transition-colors"></i> Analisar Cases
                         </button>
                     </div>
                 </div>
             </section>
 
-            <section class="w-full bg-[#050508] py-10 border-y border-white/5 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#050508] via-transparent to-[#050508] z-10 pointer-events-none"></div>
-                <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-10 md:gap-20 text-heika-gray/60 font-semibold text-sm md:text-base uppercase tracking-widest relative z-0">
-                    <span class="flex items-center gap-2 reveal"><i class="ph-fill ph-check-circle text-heika-blue/50 text-xl"></i> Sistemas Web</span>
-                    <span class="flex items-center gap-2 reveal delay-100"><i class="ph-fill ph-check-circle text-heika-blue/50 text-xl"></i> Portais Institucionais</span>
-                    <span class="flex items-center gap-2 reveal delay-200"><i class="ph-fill ph-check-circle text-heika-blue/50 text-xl"></i> Automações</span>
-                    <span class="flex items-center gap-2 reveal delay-300"><i class="ph-fill ph-check-circle text-heika-blue/50 text-xl"></i> Infraestrutura</span>
+            <section class="w-full bg-[#050508] py-8 border-y border-white/5 relative z-20">
+                <div class="max-w-7xl mx-auto px-6 overflow-hidden flex flex-col md:flex-row justify-center items-center gap-10 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                    <span class="text-sm font-mono tracking-widest text-heika-gray uppercase">Desenvolvido com:</span>
+                    <div class="flex gap-12 font-bold text-xl tracking-tighter">
+                        <span class="flex items-center gap-2"><i class="ph-fill ph-triangle"></i> Vercel</span>
+                        <span class="flex items-center gap-2"><i class="ph-fill ph-atom"></i> React</span>
+                        <span class="flex items-center gap-2"><i class="ph-fill ph-database"></i> Supabase</span>
+                        <span class="flex items-center gap-2"><i class="ph-fill ph-credit-card"></i> Stripe</span>
+                    </div>
                 </div>
             </section>
 
-            <section class="w-full py-32 max-w-7xl mx-auto px-6">
-                <div class="mb-20 reveal text-center md:text-left">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gradient mb-4">Arquitetura de ponta</h2>
-                    <p class="text-heika-gray text-lg md:text-xl font-light">Ferramentas desenhadas com precisão para resolver gargalos da sua operação.</p>
+            <section class="w-full py-32 max-w-7xl mx-auto px-6 relative">
+                <div class="mb-20 reveal">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gradient mb-6 tracking-tight">Capacidades da plataforma.</h2>
+                    <p class="text-heika-gray text-xl font-light max-w-3xl leading-relaxed">Não entregamos apenas código. Entregamos ativos tecnológicos projetados para escalar operações financeiras, gerenciais e de marketing.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div onclick="navigate('solucoes')" class="reveal premium-card group p-8 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between h-full">
-                        <div>
-                            <div class="h-12 w-12 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:scale-110 group-hover:bg-heika-blue/10 group-hover:text-heika-blue transition-all duration-300">
-                                <i class="ph ph-brackets-curly text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Desenvolvimento de Sistemas</h3>
-                            <p class="text-heika-gray text-sm leading-relaxed font-light">Plataformas robustas, aplicações SaaS e arquiteturas multi-tenant construídas em Next.js e Supabase para escalabilidade real.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="reveal premium-card p-10 rounded-3xl border border-white/5 group">
+                        <div class="h-14 w-14 rounded-2xl bg-white/[0.02] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:bg-heika-blue/10 group-hover:text-heika-blue group-hover:border-heika-blue/30 transition-all duration-500 shadow-lg">
+                            <i class="ph ph-network text-3xl"></i>
                         </div>
-                        <div class="mt-8 flex items-center text-sm font-medium text-heika-blue opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 gap-1">
-                            Explorar <i class="ph ph-arrow-right"></i>
-                        </div>
+                        <h3 class="text-2xl font-bold text-heika-white mb-4">Sistemas de Missão Crítica</h3>
+                        <p class="text-heika-gray text-base leading-relaxed font-light mb-8">Arquiteturas Node.js e Serverless preparadas para alta concorrência. Desenvolvemos ERPs, CRMs e SaaS multi-tenant inquebráveis.</p>
+                        <a href="#" onclick="navigate('solucoes')" class="text-sm font-bold text-heika-blue flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity">Detalhes da arquitetura <i class="ph ph-arrow-right"></i></a>
                     </div>
 
-                    <div onclick="navigate('solucoes')" class="reveal delay-100 premium-card group p-8 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between h-full">
-                        <div>
-                            <div class="h-12 w-12 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:scale-110 group-hover:bg-heika-blue/10 group-hover:text-heika-blue transition-all duration-300">
-                                <i class="ph ph-browsers text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Sites e Portais Premium</h3>
-                            <p class="text-heika-gray text-sm leading-relaxed font-light">Sua vitrine não pode parecer amadora. Criamos sites ultrarrápidos e otimizados para conversão e SEO com design de alto nível.</p>
+                    <div class="reveal delay-100 premium-card p-10 rounded-3xl border border-white/5 group">
+                        <div class="h-14 w-14 rounded-2xl bg-white/[0.02] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:bg-heika-blue/10 group-hover:text-heika-blue group-hover:border-heika-blue/30 transition-all duration-500 shadow-lg">
+                            <i class="ph ph-browsers text-3xl"></i>
                         </div>
-                        <div class="mt-8 flex items-center text-sm font-medium text-heika-blue opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 gap-1">
-                            Explorar <i class="ph ph-arrow-right"></i>
-                        </div>
+                        <h3 class="text-2xl font-bold text-heika-white mb-4">Interfaces de Conversão</h3>
+                        <p class="text-heika-gray text-base leading-relaxed font-light mb-8">Presença digital institucional e e-commerces (Headless) que priorizam retenção de atenção, micro-interações premium e SEO global.</p>
+                        <a href="#" onclick="navigate('solucoes')" class="text-sm font-bold text-heika-blue flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity">Ver soluções Web <i class="ph ph-arrow-right"></i></a>
                     </div>
 
-                    <div onclick="navigate('solucoes')" class="reveal delay-200 premium-card group p-8 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between h-full">
-                        <div>
-                            <div class="h-12 w-12 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:scale-110 group-hover:bg-heika-blue/10 group-hover:text-heika-blue transition-all duration-300">
-                                <i class="ph ph-arrows-merge text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Automação de Processos</h3>
-                            <p class="text-heika-gray text-sm leading-relaxed font-light">Integrações profundas de APIs (Stripe, CRMs) e scripts que eliminam trabalho manual, conectando todas as peças do seu negócio.</p>
+                    <div class="reveal delay-200 premium-card p-10 rounded-3xl border border-white/5 group">
+                        <div class="h-14 w-14 rounded-2xl bg-white/[0.02] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:bg-heika-blue/10 group-hover:text-heika-blue group-hover:border-heika-blue/30 transition-all duration-500 shadow-lg">
+                            <i class="ph ph-hard-drives text-3xl"></i>
                         </div>
-                        <div class="mt-8 flex items-center text-sm font-medium text-heika-blue opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 gap-1">
-                            Explorar <i class="ph ph-arrow-right"></i>
-                        </div>
-                    </div>
-
-                    <div onclick="navigate('solucoes')" class="reveal premium-card group p-8 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between h-full">
-                        <div>
-                            <div class="h-12 w-12 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:scale-110 group-hover:bg-heika-blue/10 group-hover:text-heika-blue transition-all duration-300">
-                                <i class="ph ph-cpu text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Infraestrutura Corporativa</h3>
-                            <p class="text-heika-gray text-sm leading-relaxed font-light">Do cabeamento estruturado à configuração de servidores físicos e cloud. A base sólida que a sua empresa precisa para operar 24/7.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-sm font-medium text-heika-blue opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 gap-1">
-                            Explorar <i class="ph ph-arrow-right"></i>
-                        </div>
-                    </div>
-
-                    <div onclick="navigate('solucoes')" class="reveal delay-100 premium-card group p-8 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between h-full">
-                        <div>
-                            <div class="h-12 w-12 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-heika-white mb-8 group-hover:scale-110 group-hover:bg-heika-blue/10 group-hover:text-heika-blue transition-all duration-300">
-                                <i class="ph ph-chart-line-up text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Dashboards Inteligentes</h3>
-                            <p class="text-heika-gray text-sm leading-relaxed font-light">Tome decisões baseadas em dados. Painéis customizados que reúnem métricas financeiras e operacionais em tempo real.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-sm font-medium text-heika-blue opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 gap-1">
-                            Explorar <i class="ph ph-arrow-right"></i>
-                        </div>
-                    </div>
-
-                    <div onclick="navigate('contato')" class="reveal delay-200 premium-card group p-8 rounded-2xl border border-white/5 cursor-pointer flex flex-col justify-between h-full relative overflow-hidden">
-                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-heika-blue/20 blur-3xl rounded-full"></div>
-                        <div class="relative z-10">
-                            <div class="h-12 w-12 rounded-xl bg-heika-blue text-white flex items-center justify-center mb-8 shadow-lg shadow-heika-blue/30 group-hover:scale-110 transition-all duration-300">
-                                <i class="ph ph-rocket-launch text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Sua ideia, executada.</h3>
-                            <p class="text-heika-gray text-sm leading-relaxed font-light">Não achou o que procura? Nós mapeamos o seu problema e construímos o software exato para resolvê-lo.</p>
-                        </div>
-                        <div class="mt-8 flex items-center text-sm font-medium text-heika-white opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 gap-1 relative z-10">
-                            Falar com a equipe <i class="ph ph-arrow-right"></i>
-                        </div>
+                        <h3 class="text-2xl font-bold text-heika-white mb-4">Cloud & Infraestrutura</h3>
+                        <p class="text-heika-gray text-base leading-relaxed font-light mb-8">Do cabeamento físico corporativo à gestão de instâncias em nuvem (AWS/GCP). Escalabilidade horizontal projetada desde o dia zero.</p>
+                        <a href="#" onclick="navigate('servicos')" class="text-sm font-bold text-heika-blue flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity">Explorar Infra <i class="ph ph-arrow-right"></i></a>
                     </div>
                 </div>
             </section>
 
-            <section class="w-full py-32 bg-[#0B0B0E] border-y border-white/5 relative overflow-hidden">
-                <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <section class="w-full py-32 bg-[#050508] border-y border-white/5 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-1/2 h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTIwIDIwTDIwIDQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPgo8cGF0aCBkPSJNMjAgMjBMMCAyMCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')] opacity-50"></div>
+                
+                <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
                     <div class="reveal">
-                        <div class="inline-flex items-center gap-2 text-heika-blue text-sm font-semibold tracking-wider uppercase mb-4">
-                            <i class="ph ph-terminal-window text-lg"></i> Código Limpo
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/[0.05] border border-white/10 rounded-md text-xs font-mono text-heika-gray uppercase tracking-widest mb-6">
+                            // Padrão de Desenvolvimento
                         </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-gradient mb-6 leading-[1.1]">Engenharia moderna.<br/>Sem puxadinhos.</h2>
-                        <p class="text-heika-gray mb-8 text-lg font-light leading-relaxed">
-                            Na HEIKA, nós tratamos seu projeto como um produto escalável desde o dia zero. Recusamos soluções "quebra-galho". Construímos bases sólidas que permitem sua empresa crescer sem gargalos técnicos.
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gradient mb-8 leading-[1.1]">Engenharia de precisão.<br/>Zero atalhos técnicos.</h2>
+                        <p class="text-heika-gray mb-10 text-xl font-light leading-relaxed">
+                            Na HEIKA, código legado não existe em projetos novos. Entregamos produtos com qualidade internacional, com Design Systems customizados e integração contínua habilitada por padrão.
                         </p>
                         
-                        <div class="space-y-6 mt-10">
-                            <div class="flex gap-4 items-start">
-                                <div class="mt-1 w-8 h-8 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-heika-white shrink-0"><i class="ph ph-check"></i></div>
+                        <div class="space-y-8">
+                            <div class="flex gap-5 items-start group">
+                                <div class="mt-1 w-10 h-10 rounded-xl bg-heika-blue/10 border border-heika-blue/20 flex items-center justify-center text-heika-blue shrink-0 group-hover:scale-110 transition-transform"><i class="ph-fill ph-check-circle"></i></div>
                                 <div>
-                                    <h4 class="font-semibold text-heika-white mb-1">Arquitetura Vercel & Next.js</h4>
-                                    <p class="text-sm text-heika-gray font-light">Aplicações ultrarrápidas distribuídas globalmente.</p>
+                                    <h4 class="text-xl font-bold text-heika-white mb-2">Arquitetura Vercel & Next.js</h4>
+                                    <p class="text-base text-heika-gray font-light leading-relaxed">Aplicações Edge renderizadas no servidor para carregamentos em milissegundos e indexação máxima.</p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 items-start">
-                                <div class="mt-1 w-8 h-8 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-heika-white shrink-0"><i class="ph ph-check"></i></div>
+                            <div class="flex gap-5 items-start group">
+                                <div class="mt-1 w-10 h-10 rounded-xl bg-heika-blue/10 border border-heika-blue/20 flex items-center justify-center text-heika-blue shrink-0 group-hover:scale-110 transition-transform"><i class="ph-fill ph-shield-check"></i></div>
                                 <div>
-                                    <h4 class="font-semibold text-heika-white mb-1">Bancos de dados Relacionais</h4>
-                                    <p class="text-sm text-heika-gray font-light">PostgreSQL via Supabase para segurança absoluta dos dados.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start">
-                                <div class="mt-1 w-8 h-8 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-heika-white shrink-0"><i class="ph ph-check"></i></div>
-                                <div>
-                                    <h4 class="font-semibold text-heika-white mb-1">Design System Dedicado</h4>
-                                    <p class="text-sm text-heika-gray font-light">UI/UX desenhada milimetricamente com Tailwind CSS.</p>
+                                    <h4 class="text-xl font-bold text-heika-white mb-2">Bancos Relacionais (PostgreSQL)</h4>
+                                    <p class="text-base text-heika-gray font-light leading-relaxed">Dados imutáveis, integridade referencial via Supabase e políticas de segurança RLS (Row Level Security).</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="reveal delay-200 relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-heika-blue to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
-                        <div class="relative bg-[#0D0D12] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-                            <div class="bg-[#15151A] px-4 py-3 flex items-center gap-2 border-b border-white/5">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-heika-blue via-purple-600 to-heika-blue rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-1000 animate-pulse-slow"></div>
+                        <div class="relative bg-[#0A0A0E] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                            <div class="bg-[#111116] px-5 py-4 flex items-center gap-3 border-b border-white/5">
                                 <div class="flex gap-2">
-                                    <div class="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]"></div>
-                                    <div class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]"></div>
-                                    <div class="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]"></div>
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#FF5F56] border border-black/20"></div>
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border border-black/20"></div>
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#27C93F] border border-black/20"></div>
                                 </div>
-                                <div class="flex-1 text-center">
-                                    <span class="text-xs text-heika-gray font-mono flex items-center justify-center gap-2">
-                                        <i class="ph ph-lock text-[10px]"></i> heika-core/deploy.ts
-                                    </span>
-                                </div>
+                                <div class="flex-1 text-center font-mono text-xs text-heika-gray/60 tracking-wider">HEIKA_IMPLANTACAO.ts</div>
                             </div>
-                            <div class="p-6 font-mono text-sm text-[#A1A1AA] leading-relaxed overflow-x-auto whitespace-pre">
-<span class="text-[#C678DD]">import</span> { initProject, Scalability, Security } <span class="text-[#C678DD]">from</span> <span class="text-[#98C379]">'@heika/infra'</span>;
+                            <div class="p-8 font-mono text-sm md:text-base text-[#A1A1AA] leading-relaxed overflow-x-auto whitespace-pre">
+<span class="text-[#C678DD]">import</span> { iniciarSistema, ConfigSeguranca } <span class="text-[#C678DD]">from</span> <span class="text-[#98C379]">'@heika'</span>;
 
-<span class="text-[#56B6C2]">async function</span> <span class="text-[#61AFEF]">buildSolution</span>(clientRequirements: AppState) {
-  <span class="text-[#C678DD]">const</span> engine = <span class="text-[#C678DD]">new</span> <span class="text-[#E5C07B]">HeikaEngine</span>({
-    techStack: [<span class="text-[#98C379]">'Next.js'</span>, <span class="text-[#98C379]">'Supabase'</span>, <span class="text-[#98C379]">'Tailwind'</span>],
-    isMultiTenant: <span class="text-[#D19A66]">true</span>,
-    performanceGoal: <span class="text-[#98C379]">'Ultra-Fast'</span>
+<span class="text-[#56B6C2]">const</span> <span class="text-[#E5C07B]">implantarMissaoCritica</span> = <span class="text-[#56B6C2]">async</span> (cliente: string) => {
+  <span class="text-[#C678DD]">const</span> motor = <span class="text-[#C678DD]">new</span> <span class="text-[#61AFEF]">HeikaInfraestrutura</span>({
+    tecnologias: [<span class="text-[#98C379]">'Next.js App Router'</span>, <span class="text-[#98C379]">'Supabase'</span>],
+    escala: <span class="text-[#98C379]">'Corporativa'</span>,
+    middleware: [ConfigSeguranca.rigorosa()]
   });
 
-  <span class="text-[#7F848E] italic">// Garantindo segurança e conversão máxima</span>
-  engine.<span class="text-[#61AFEF]">applyMiddlewares</span>([Security.strict(), Scalability.auto()]);
-  
-  <span class="text-[#C678DD]">await</span> engine.<span class="text-[#61AFEF]">deploy</span>({ target: <span class="text-[#98C379]">'production'</span> });
-  
-  <span class="text-[#C678DD]">return</span> { status: 200, success: <span class="text-[#D19A66]">true</span> };
-}</div>
+  <span class="text-[#7F848E] italic">// Provisionando Ambiente com Zero Tempo de Inatividade</span>
+  <span class="text-[#C678DD]">await</span> motor.<span class="text-[#61AFEF]">provisionarBancoDados</span>();
+  <span class="text-[#C678DD]">await</span> motor.<span class="text-[#61AFEF]">implantarNaNuvem</span>();
+
+  <span class="text-[#C678DD]">return</span> { status: <span class="text-[#D19A66]">200</span>, sistema: <span class="text-[#98C379]">'Online'</span> };
+};</div>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
 
-            <section class="w-full py-32 relative">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
-                        <div>
-                            <h2 class="text-3xl md:text-5xl font-bold text-gradient mb-4">Projetos em Destaque</h2>
-                            <p class="text-heika-gray text-lg font-light">Sistemas que resolvem problemas reais no mercado.</p>
-                        </div>
-                        <button onclick="navigate('projetos')" class="hidden md:flex items-center gap-2 text-heika-white hover:text-heika-blue transition-colors font-medium text-sm border-b border-transparent hover:border-heika-blue pb-1">
-                            Explorar Portfólio <i class="ph ph-arrow-right"></i>
+        <div id="solucoes" class="page-section max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gradient mb-8 reveal tracking-tight">Soluções Corporativas</h1>
+            <p class="text-xl md:text-2xl text-heika-gray max-w-3xl mb-24 font-light reveal delay-100 leading-relaxed">
+                Ecossistemas de software robustos criados para resolver os gargalos da sua operação, automatizar o impossível e escalar sem limites.
+            </p>
+            
+            <div class="flex flex-col gap-12">
+                <div class="reveal premium-card p-10 md:p-14 rounded-3xl border border-white/5 flex flex-col lg:flex-row gap-12 items-start lg:items-center relative overflow-hidden group">
+                    <div class="absolute right-0 top-0 w-96 h-96 bg-heika-blue/5 blur-[100px] rounded-full group-hover:bg-heika-blue/10 transition-colors duration-700"></div>
+                    <div class="relative z-10 flex-1">
+                        <div class="inline-block px-3 py-1 mb-6 rounded text-xs font-bold uppercase tracking-widest bg-heika-blue/10 text-heika-blue border border-heika-blue/20">Plataformas Customizadas</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-heika-white mb-6">Sistemas Web & SaaS Multi-tenant</h2>
+                        <p class="text-heika-gray text-lg mb-8 leading-relaxed font-light">
+                            Desenvolvimento central de plataformas operacionais. Se o mercado não oferece um software que atende 100% o seu modelo de negócios, nós construímos a ferramenta exata. Desde portais B2B, sistemas financeiros, até arquiteturas SaaS completas prontas para receber milhares de assinantes.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-4 mb-8 text-sm text-heika-gray font-medium">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-heika-blue"></i> Autenticação JWT Avançada</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-heika-blue"></i> Segurança em Nível de Linha (RLS)</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-heika-blue"></i> Dashboards Administrativos</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-heika-blue"></i> Integração com Gateways (Stripe)</li>
+                        </ul>
+                    </div>
+                    <div class="relative z-10 shrink-0 w-full lg:w-auto">
+                        <button onclick="navigate('contato')" class="w-full lg:w-auto bg-white text-black hover:bg-gray-200 px-8 py-4 rounded-xl font-bold transition-colors flex justify-center items-center gap-2">
+                            Mapear Arquitetura <i class="ph ph-arrow-right"></i>
                         </button>
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="reveal premium-card rounded-2xl overflow-hidden group cursor-pointer border border-white/5" onclick="navigate('projetos')">
-                            <div class="h-60 bg-[#111115] relative overflow-hidden flex items-center justify-center p-8">
-                                <div class="absolute inset-0 opacity-20 mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
-                                <div class="absolute top-0 right-0 w-64 h-64 bg-heika-blue/30 blur-[80px] rounded-full group-hover:bg-heika-blue/50 transition-colors duration-700"></div>
-                                <div class="relative z-10 w-full max-w-sm h-32 border border-white/10 rounded-xl bg-white/[0.02] backdrop-blur-md shadow-2xl flex flex-col p-4 transform group-hover:scale-105 group-hover:-translate-y-2 transition-transform duration-500">
-                                    <div class="flex gap-2 mb-4">
-                                        <div class="w-8 h-8 rounded-full bg-white/10"></div>
-                                        <div class="flex-1 space-y-2 py-1">
-                                            <div class="h-2 w-24 bg-white/20 rounded"></div>
-                                            <div class="h-2 w-16 bg-white/10 rounded"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-auto h-12 w-full bg-gradient-to-r from-heika-blue/40 to-transparent rounded border border-white/5"></div>
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="text-[10px] font-bold text-heika-blue uppercase tracking-widest px-2 py-1 bg-heika-blue/10 rounded border border-heika-blue/20">CRM B2B</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-heika-white mb-3">CRM Corporativo</h4>
-                                <p class="text-heika-gray text-sm font-light">Dashboard otimizado para times de vendas com arquitetura multi-tenant.</p>
-                            </div>
-                        </div>
+                </div>
 
-                        <div class="reveal delay-100 premium-card rounded-2xl overflow-hidden group cursor-pointer border border-white/5" onclick="navigate('projetos')">
-                            <div class="h-60 bg-[#111115] relative overflow-hidden flex items-center justify-center p-8">
-                                <div class="absolute inset-0 opacity-20 mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
-                                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full group-hover:bg-purple-600/40 transition-colors duration-700"></div>
-                                <div class="relative z-10 w-32 h-32 rounded-full border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-md shadow-2xl flex items-center justify-center transform group-hover:scale-105 group-hover:rotate-12 transition-all duration-500">
-                                    <i class="ph ph-shopping-cart text-4xl text-white/50 group-hover:text-white transition-colors"></i>
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest px-2 py-1 bg-purple-400/10 rounded border border-purple-400/20">E-commerce Premium</span>
-                                </div>
-                                <h4 class="text-2xl font-bold text-heika-white mb-3">Copê Varejo Digital</h4>
-                                <p class="text-heika-gray text-sm font-light">Loja virtual de extrema performance com carrinho dinâmico instantâneo.</p>
-                            </div>
-                        </div>
+                <div class="reveal premium-card p-10 md:p-14 rounded-3xl border border-white/5 flex flex-col lg:flex-row gap-12 items-start lg:items-center relative overflow-hidden group">
+                    <div class="absolute right-0 top-0 w-96 h-96 bg-purple-500/5 blur-[100px] rounded-full group-hover:bg-purple-500/10 transition-colors duration-700"></div>
+                    <div class="relative z-10 flex-1">
+                        <div class="inline-block px-3 py-1 mb-6 rounded text-xs font-bold uppercase tracking-widest bg-purple-500/10 text-purple-400 border border-purple-500/20">Presença Digital & Conversão</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-heika-white mb-6">Sites Alta Performance & Headless Commerce</h2>
+                        <p class="text-heika-gray text-lg mb-8 leading-relaxed font-light">
+                            A vitrine corporativa da sua empresa exige um padrão visual inquestionável. Desenvolvemos sites institucionais de extremo desempenho, páginas de vendas para aquisição em massa e e-commerces integrados via API (Headless), garantindo nota máxima nos relatórios técnicos do Google.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-4 mb-8 text-sm text-heika-gray font-medium">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-400"></i> Renderização no Servidor (SSR)</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-400"></i> SEO Técnico Impecável</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-400"></i> Micro-interações Premium</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-400"></i> Carregamento Abaixo de 1s</li>
+                        </ul>
+                    </div>
+                    <div class="relative z-10 shrink-0 w-full lg:w-auto">
+                        <button onclick="navigate('contato')" class="w-full lg:w-auto bg-white text-black hover:bg-gray-200 px-8 py-4 rounded-xl font-bold transition-colors flex justify-center items-center gap-2">
+                            Orçar Projeto <i class="ph ph-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
-        <div id="projetos" class="page-section max-w-7xl mx-auto px-6 py-32">
-            <h1 class="text-4xl md:text-6xl font-bold text-gradient mb-6 reveal">Portfólio & Cases</h1>
-            <p class="text-xl text-heika-gray max-w-2xl mb-20 font-light reveal delay-100">Soluções reais entregues com precisão técnica para resolver problemas complexos do mercado.</p>
+        <div id="servicos" class="page-section max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <div class="text-center md:text-left mb-24 reveal">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-gradient mb-8 tracking-tight">Competências Técnicas</h1>
+                <p class="text-xl md:text-2xl text-heika-gray max-w-3xl font-light leading-relaxed">
+                    A execução de classe mundial exige mais do que apenas programadores. Exige uma disciplina rigorosa de engenharia, design de interfaces e infraestrutura de rede.
+                </p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="reveal premium-card overflow-hidden rounded-2xl border border-white/5 flex flex-col group cursor-pointer hover:border-heika-blue/30 transition-all duration-300">
-                    <div class="h-72 bg-[#0D0D12] border-b border-white/5 relative overflow-hidden flex items-center justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal premium-card p-10 rounded-3xl border border-white/5">
+                    <i class="ph-fill ph-code-block text-4xl text-heika-blue mb-6"></i>
+                    <h3 class="text-2xl font-bold text-heika-white mb-4">Engenharia Full Stack</h3>
+                    <p class="text-heika-gray text-base leading-relaxed mb-8 font-light">Escrita de código limpo, testável e escalável. Desenvolvemos desde o banco de dados e regras de negócio complexas até a interface fluida no navegador, centralizando a responsabilidade da entrega.</p>
+                </div>
+                <div class="reveal delay-100 premium-card p-10 rounded-3xl border border-white/5">
+                    <i class="ph-fill ph-paint-brush-broad text-4xl text-heika-blue mb-6"></i>
+                    <h3 class="text-2xl font-bold text-heika-white mb-4">UI/UX Design System</h3>
+                    <p class="text-heika-gray text-base leading-relaxed mb-8 font-light">A estética importa. Criamos identidades visuais e componentes modulares no Figma antes de escrever qualquer linha de código, garantindo que o software seja tão elegante quanto poderoso.</p>
+                </div>
+                <div class="reveal delay-200 premium-card p-10 rounded-3xl border border-white/5">
+                    <i class="ph-fill ph-hard-drives text-4xl text-heika-blue mb-6"></i>
+                    <h3 class="text-2xl font-bold text-heika-white mb-4">Infra & Networking</h3>
+                    <p class="text-heika-gray text-base leading-relaxed mb-8 font-light">Para operações que exigem hardware físico: planejamento e execução de cabeamento estruturado, racks, switches corporativos e configuração de servidores locais de alta densidade.</p>
+                </div>
+                <div class="reveal premium-card p-10 rounded-3xl border border-white/5">
+                    <i class="ph-fill ph-arrows-merge text-4xl text-heika-blue mb-6"></i>
+                    <h3 class="text-2xl font-bold text-heika-white mb-4">Pipelines de Dados & APIs</h3>
+                    <p class="text-heika-gray text-base leading-relaxed mb-8 font-light">Conectamos as ferramentas fragmentadas da sua empresa. Criamos webhooks e integrações profundas REST/GraphQL para automatizar fluxos entre o seu ERP, CRM e sistemas fiscais.</p>
+                </div>
+                <div class="reveal delay-100 premium-card p-10 rounded-3xl border border-white/5">
+                    <i class="ph-fill ph-shield-check text-4xl text-heika-blue mb-6"></i>
+                    <h3 class="text-2xl font-bold text-heika-white mb-4">DevOps & Manutenção</h3>
+                    <p class="text-heika-gray text-base leading-relaxed mb-8 font-light">Monitoramento contínuo. Assumimos sistemas que precisam de escala, aplicando rotinas de backup, testes automatizados e atualizações sem tempo de inatividade (Zero Downtime).</p>
+                </div>
+                <div class="reveal delay-200 premium-card p-10 rounded-3xl border border-white/5 bg-heika-blue/5 border-heika-blue/20">
+                    <i class="ph-fill ph-rocket-launch text-4xl text-heika-blue mb-6"></i>
+                    <h3 class="text-2xl font-bold text-heika-white mb-4">Consultoria Executiva</h3>
+                    <p class="text-heika-gray text-base leading-relaxed mb-8 font-light">Sentamos com a diretoria para mapear gargalos operacionais. Desenhamos o plano tecnológico exato que sua empresa precisa seguir nos próximos anos para se manter competitiva.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="projetos" class="page-section max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gradient mb-8 reveal tracking-tight">Cases de Sucesso</h1>
+            <p class="text-xl md:text-2xl text-heika-gray max-w-3xl mb-24 font-light reveal delay-100 leading-relaxed">
+                A teoria impressiona, mas a prática converte. Analise as arquiteturas complexas que já entregamos para o mercado.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="reveal premium-card overflow-hidden rounded-3xl border border-white/5 flex flex-col group">
+                    <div class="h-80 bg-[#0A0A0E] border-b border-white/5 relative overflow-hidden flex items-center justify-center">
                         <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                        <div class="absolute w-full h-full bg-gradient-to-t from-[#0D0D12] to-transparent z-10"></div>
-                        <i class="ph ph-buildings text-8xl text-white/[0.03] group-hover:text-heika-blue/10 group-hover:scale-110 transition-all duration-700 absolute"></i>
-                        <div class="relative z-20 w-3/4 h-2/3 bg-white/[0.02] border border-white/10 rounded-xl backdrop-blur-md shadow-2xl p-6 transform group-hover:-translate-y-2 transition-transform duration-500">
-                            <div class="h-4 w-1/3 bg-white/10 rounded mb-6"></div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="h-20 bg-heika-blue/20 rounded border border-heika-blue/30"></div>
-                                <div class="h-20 bg-white/5 rounded border border-white/5"></div>
+                        <i class="ph-fill ph-buildings text-9xl text-white/[0.02] group-hover:text-heika-blue/20 group-hover:scale-110 transition-all duration-700 absolute"></i>
+                        <div class="relative z-20 w-4/5 h-2/3 bg-white/[0.03] border border-white/10 rounded-xl backdrop-blur-xl shadow-2xl p-6 transform group-hover:-translate-y-3 transition-transform duration-500">
+                            <div class="flex justify-between items-center mb-6">
+                                <div class="h-3 w-1/4 bg-white/20 rounded"></div>
+                                <div class="h-6 w-16 bg-heika-blue/30 rounded-full"></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="h-24 flex-1 bg-white/5 rounded-lg border border-white/5"></div>
+                                <div class="h-24 flex-1 bg-heika-blue/10 rounded-lg border border-heika-blue/20"></div>
                             </div>
                         </div>
                     </div>
                     <div class="p-10 flex-grow flex flex-col">
-                        <span class="text-xs font-bold text-heika-blue uppercase tracking-widest mb-3">SaaS / Multi-tenant</span>
-                        <h2 class="text-3xl font-bold text-heika-white mb-4">Sistema de Gestão para Cantinas</h2>
+                        <span class="text-xs font-bold text-heika-blue uppercase tracking-widest mb-4">EduTech / SaaS Financeiro</span>
+                        <h2 class="text-3xl font-bold text-heika-white mb-4">Arquitetura Multi-tenant Escolar</h2>
                         <p class="text-heika-gray text-base mb-8 font-light flex-grow leading-relaxed">
-                            Plataforma completa de gestão financeira desenvolvida sob medida. Permite que pais recarreguem saldos online via Stripe, controle de estoque inteligente e PDV rápido para os caixas das escolas operarem em tablets.
+                            O desafio era eliminar o uso de dinheiro físico nas cantinas. Desenvolvemos uma plataforma robusta de carteira digital onde pais depositam saldo via integração nativa e alunos consomem usando matrículas em um sistema de caixa operado via tablet, com conciliação instantânea no banco de dados.
                         </p>
-                        <div class="flex gap-2 flex-wrap mb-8">
-                            <span class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded text-heika-gray group-hover:border-white/20 transition-colors">Next.js</span>
-                            <span class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded text-heika-gray group-hover:border-white/20 transition-colors">Supabase</span>
-                            <span class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded text-heika-gray group-hover:border-white/20 transition-colors">Tailwind CSS</span>
+                        <div class="flex gap-3 flex-wrap pt-6 border-t border-white/5">
+                            <span class="text-[11px] font-mono px-3 py-1.5 bg-[#08080B] border border-white/10 rounded-md text-heika-gray">Next.js</span>
+                            <span class="text-[11px] font-mono px-3 py-1.5 bg-[#08080B] border border-white/10 rounded-md text-heika-gray">Supabase</span>
+                            <span class="text-[11px] font-mono px-3 py-1.5 bg-[#08080B] border border-white/10 rounded-md text-heika-gray">Tailwind</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-100 premium-card overflow-hidden rounded-2xl border border-white/5 flex flex-col group cursor-pointer hover:border-purple-500/30 transition-all duration-300">
-                    <div class="h-72 bg-[#0D0D12] border-b border-white/5 relative overflow-hidden flex items-center justify-center">
+                <div class="reveal delay-100 premium-card overflow-hidden rounded-3xl border border-white/5 flex flex-col group">
+                    <div class="h-80 bg-[#0A0A0E] border-b border-white/5 relative overflow-hidden flex items-center justify-center">
                         <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                        <div class="absolute w-full h-full bg-gradient-to-t from-[#0D0D12] to-transparent z-10"></div>
-                        <i class="ph ph-users text-8xl text-white/[0.03] group-hover:text-purple-500/10 group-hover:scale-110 transition-all duration-700 absolute"></i>
-                        <div class="relative z-20 w-3/4 h-2/3 bg-white/[0.02] border border-white/10 rounded-xl backdrop-blur-md shadow-2xl p-4 flex gap-4 transform group-hover:-translate-y-2 transition-transform duration-500">
-                            <div class="w-1/3 bg-white/5 rounded border border-white/5"></div>
-                            <div class="flex-1 bg-purple-500/10 rounded border border-purple-500/20"></div>
+                        <i class="ph-fill ph-users-three text-9xl text-white/[0.02] group-hover:text-heika-blue/20 group-hover:scale-110 transition-all duration-700 absolute"></i>
+                        <div class="relative z-20 w-4/5 h-2/3 bg-white/[0.03] border border-white/10 rounded-xl backdrop-blur-xl shadow-2xl p-6 flex gap-4 transform group-hover:-translate-y-3 transition-transform duration-500">
+                             <div class="w-1/4 h-full bg-white/5 rounded-lg border border-white/5"></div>
+                             <div class="flex-1 h-full flex flex-col gap-3">
+                                 <div class="h-8 w-full bg-white/10 rounded"></div>
+                                 <div class="flex-1 w-full bg-white/5 rounded border border-white/5"></div>
+                             </div>
                         </div>
                     </div>
                     <div class="p-10 flex-grow flex flex-col">
-                        <span class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-3">Sistema Interno</span>
-                        <h2 class="text-3xl font-bold text-heika-white mb-4">CRM Papa Mike</h2>
+                        <span class="text-xs font-bold text-heika-blue uppercase tracking-widest mb-4">CRM Corporativo</span>
+                        <h2 class="text-3xl font-bold text-heika-white mb-4">Gestão de Relacionamento Papa Mike</h2>
                         <p class="text-heika-gray text-base mb-8 font-light flex-grow leading-relaxed">
-                            Dashboard de relacionamento com clientes desenvolvido especificamente para atender a operação diária das equipes de vendas, eliminando a poluição visual de CRMs tradicionais de mercado. Foco total em agilidade.
+                            Criação de um sistema de vendas interno focado em alta disponibilidade e latência zero. Substituímos o uso de planilhas e softwares genéricos por um painel limpo, projetado ergonomicamente para aumentar o volume de ligações diárias do time de atendimento comercial.
                         </p>
-                        <div class="flex gap-2 flex-wrap mb-8">
-                            <span class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded text-heika-gray group-hover:border-white/20 transition-colors">React</span>
-                            <span class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded text-heika-gray group-hover:border-white/20 transition-colors">Node.js</span>
-                            <span class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded text-heika-gray group-hover:border-white/20 transition-colors">PostgreSQL</span>
+                        <div class="flex gap-3 flex-wrap pt-6 border-t border-white/5">
+                            <span class="text-[11px] font-mono px-3 py-1.5 bg-[#08080B] border border-white/10 rounded-md text-heika-gray">React / SPA</span>
+                            <span class="text-[11px] font-mono px-3 py-1.5 bg-[#08080B] border border-white/10 rounded-md text-heika-gray">Node.js</span>
+                            <span class="text-[11px] font-mono px-3 py-1.5 bg-[#08080B] border border-white/10 rounded-md text-heika-gray">PostgreSQL</span>
                         </div>
                     </div>
                 </div>
 
+                <div class="reveal premium-card overflow-hidden rounded-3xl border border-white/5 flex flex-col group lg:col-span-2">
+                    <div class="h-72 bg-[#0A0A0E] border-b border-white/5 relative overflow-hidden flex items-center justify-center p-10">
+                         <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-heika-blue/20 opacity-50 mix-blend-overlay"></div>
+                         <h2 class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 z-10 tracking-tighter uppercase">Copê.</h2>
+                    </div>
+                    <div class="p-10 flex flex-col md:flex-row gap-10 items-center">
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-4 block">Varejo Digital & Headless Commerce</span>
+                            <h2 class="text-3xl font-bold text-heika-white mb-4">E-commerce de Alta Performance</h2>
+                            <p class="text-heika-gray text-base font-light leading-relaxed">
+                                A marca exigia uma experiência de navegação premium. Construímos uma loja virtual customizada que carrega instantaneamente, com carrinho otimizado para evitar abandonos. Integramos com APIs de pagamento e logística para automatizar 100% o fluxo após o clique de compra.
+                            </p>
+                        </div>
+                        <div class="flex gap-3 flex-wrap md:flex-col shrink-0">
+                            <span class="text-[11px] font-mono px-4 py-2 bg-[#08080B] border border-white/10 rounded-md text-heika-gray text-center">Next.js Framework</span>
+                            <span class="text-[11px] font-mono px-4 py-2 bg-[#08080B] border border-white/10 rounded-md text-heika-gray text-center">Integração de Pagamento</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </div>
 
-        <div id="sobre" class="page-section py-32 relative">
+        <div id="sobre" class="page-section py-24 md:py-32 relative">
             <div class="max-w-4xl mx-auto px-6">
-                <div class="reveal">
-                    <h1 class="text-4xl md:text-6xl font-bold text-gradient mb-10">A Engenharia por trás da HEIKA.</h1>
+                
+                <div class="reveal flex justify-center mb-16 opacity-30">
+                    <img src="logo.png" alt="HEIKA Logo" class="h-24 grayscale">
+                </div>
+
+                <div class="reveal text-center mb-20">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-gradient mb-8 tracking-tight">O motor do seu crescimento.</h1>
+                    <p class="text-xl md:text-2xl text-heika-gray font-light leading-relaxed">Nós somos a base de engenharia que sustenta a operação digital das empresas mais exigentes do mercado.</p>
                 </div>
                 
-                <div class="space-y-10 text-heika-gray/90 text-lg leading-[1.8] font-light">
+                <div class="space-y-12 text-heika-gray/90 text-lg md:text-xl leading-[1.8] font-light">
                     <p class="reveal delay-100">
-                        A HEIKA nasceu da constatação de um problema claro: o mercado está saturado de soluções rasas. Empresas com grande potencial de crescimento esbarram em sistemas travados, sites feitos em templates baratos que não convertem, e profissionais amadores.
+                        O mercado aceitou a mediocridade tecnológica. Plataformas que travam durante os picos de acesso, códigos inseguros criados a partir de templates engessados, e uma falta assustadora de compromisso com o resultado final do cliente. A HEIKA SOLUCTIONS LTDA foi fundada com um manifesto de repúdio a isso.
                     </p>
                     <p class="reveal delay-200">
-                        Nós existimos para mudar isso. Nossa entrega não é apenas "um site" ou "um sistema". Nós entregamos a base digital que vai sustentar a sua operação pelos próximos anos.
+                        Nós injetamos <strong class="text-heika-white font-semibold">arquitetura de nível global</strong> em empresas que buscam liderança. Entregamos plataformas robustas, escaláveis e incrivelmente desenhadas. Para nós, a tecnologia não é um centro de custo; é o principal ativo para a sua escalabilidade no mercado.
                     </p>
-                    
-                    <div class="reveal delay-300 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-16"></div>
-
-                    <h2 class="reveal text-3xl font-bold text-heika-white mb-6">Nossos Fundamentos</h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mt-10">
-                        <div class="reveal premium-card p-8 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-lg bg-heika-blue/10 text-heika-blue flex items-center justify-center mb-6">
-                                <i class="ph-fill ph-code-block text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Excelência Técnica</h3>
-                            <p class="text-sm font-light leading-relaxed">Código limpo e documentado. Infraestrutura pensada para escalar desde o dia 1. A tecnologia nunca será o seu gargalo.</p>
-                        </div>
-                        
-                        <div class="reveal delay-100 premium-card p-8 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-lg bg-heika-blue/10 text-heika-blue flex items-center justify-center mb-6">
-                                <i class="ph-fill ph-paint-brush text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Design Funcional</h3>
-                            <p class="text-sm font-light leading-relaxed">Não acreditamos em arte pela arte. Nosso UI/UX é projetado milimetricamente para guiar o usuário à conversão.</p>
-                        </div>
-
-                        <div class="reveal premium-card p-8 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-lg bg-heika-blue/10 text-heika-blue flex items-center justify-center mb-6">
-                                <i class="ph-fill ph-chart-polar text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Foco no Negócio</h3>
-                            <p class="text-sm font-light leading-relaxed">A tecnologia serve ao lucro e à eficiência. Desenhamos arquiteturas que reduzem custos e aumentam faturamento.</p>
-                        </div>
-
-                        <div class="reveal delay-100 premium-card p-8 rounded-2xl border border-white/5">
-                            <div class="w-10 h-10 rounded-lg bg-heika-blue/10 text-heika-blue flex items-center justify-center mb-6">
-                                <i class="ph-fill ph-handshake text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-heika-white mb-3">Sem Letras Miúdas</h3>
-                            <p class="text-sm font-light leading-relaxed">Processos transparentes. Você entende exatamente o que está comprando e acompanha cada sprint de desenvolvimento.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="equipe" class="page-section py-32">
+        <div id="equipe" class="page-section py-24 md:py-32">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24 reveal">
-                    <h1 class="text-4xl md:text-6xl font-bold text-gradient mb-6">Quem lidera as soluções.</h1>
-                    <p class="text-xl text-heika-gray max-w-2xl mx-auto font-light">Uma equipe central altamente especializada, garantindo que o seu projeto passe apenas pelas mãos de quem resolve.</p>
+                <div class="text-center md:text-left mb-24 reveal">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-gradient mb-6 tracking-tight">Liderança Executiva</h1>
+                    <p class="text-xl md:text-2xl text-heika-gray max-w-3xl font-light leading-relaxed">Uma matriz executiva sólida. Suas decisões tecnológicas são tomadas exclusivamente por especialistas seniores.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                    <div class="reveal premium-card flex flex-col items-center text-center p-12 border border-white/5 rounded-3xl group">
-                        <div class="relative mb-8">
-                            <div class="absolute inset-0 bg-heika-blue/20 blur-xl rounded-full group-hover:bg-heika-blue/40 transition-all duration-500"></div>
-                            <div class="w-32 h-32 rounded-full bg-[#111115] border border-white/10 flex items-center justify-center relative z-10 overflow-hidden shadow-2xl">
-                                <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-                                <span class="relative z-10 text-heika-blue text-5xl font-light">K</span>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="reveal premium-card p-12 border border-white/5 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center md:items-start group">
+                        <div class="shrink-0 relative">
+                            <div class="absolute inset-0 bg-heika-blue/30 blur-2xl rounded-full group-hover:bg-heika-blue/50 transition-all duration-700"></div>
+                            <div class="w-36 h-36 rounded-full bg-[#0A0A0E] border border-white/10 flex items-center justify-center relative z-10 shadow-2xl overflow-hidden">
+                                <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+                                <span class="relative z-10 text-heika-white text-5xl font-light">K</span>
                             </div>
                         </div>
-                        <h2 class="text-3xl font-bold text-heika-white mb-2">Kauã</h2>
-                        <p class="text-xs font-bold text-heika-blue mb-6 uppercase tracking-widest">Tecnologia & Arquitetura</p>
-                        <p class="text-heika-gray text-base leading-relaxed font-light">
-                            Programador full stack com vasta experiência em arquiteturas modernas (Next.js, Supabase, Vercel). Responsável pela engenharia de software da HEIKA, garantindo bases de código impecáveis e escaláveis.
-                        </p>
+                        <div>
+                            <div class="inline-block px-3 py-1 mb-4 rounded text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 text-heika-gray">Diretor de Tecnologia (CTO)</div>
+                            <h2 class="text-3xl font-bold text-heika-white mb-4">Kauã</h2>
+                            <p class="text-heika-gray text-base leading-relaxed font-light">
+                                Arquiteto de Software responsável pelas fundações técnicas da HEIKA. Lidera as decisões de arquitetura, padrões de segurança e escala de infraestrutura. Garante que cada linha de código implementada siga rigorosas metodologias de desenvolvimento e performance.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="reveal delay-100 premium-card flex flex-col items-center text-center p-12 border border-white/5 rounded-3xl group">
-                        <div class="relative mb-8">
-                            <div class="absolute inset-0 bg-heika-blue/20 blur-xl rounded-full group-hover:bg-heika-blue/40 transition-all duration-500"></div>
-                            <div class="w-32 h-32 rounded-full bg-[#111115] border border-white/10 flex items-center justify-center relative z-10 overflow-hidden shadow-2xl">
-                                <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-                                <span class="relative z-10 text-heika-blue text-5xl font-light">H</span>
+                    <div class="reveal delay-100 premium-card p-12 border border-white/5 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center md:items-start group">
+                        <div class="shrink-0 relative">
+                            <div class="absolute inset-0 bg-heika-blue/30 blur-2xl rounded-full group-hover:bg-heika-blue/50 transition-all duration-700"></div>
+                            <div class="w-36 h-36 rounded-full bg-[#0A0A0E] border border-white/10 flex items-center justify-center relative z-10 shadow-2xl overflow-hidden">
+                                <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+                                <span class="relative z-10 text-heika-white text-5xl font-light">H</span>
                             </div>
                         </div>
-                        <h2 class="text-3xl font-bold text-heika-white mb-2">Heitor</h2>
-                        <p class="text-xs font-bold text-heika-blue mb-6 uppercase tracking-widest">Operações & Estratégia</p>
-                        <p class="text-heika-gray text-base leading-relaxed font-light">
-                            Focado em garantir a entrega impecável, gerenciar os processos e traduzir os desafios corporativos dos clientes em requisitos técnicos cristalinos para a equipe de desenvolvimento executar.
-                        </p>
+                        <div>
+                            <div class="inline-block px-3 py-1 mb-4 rounded text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 text-heika-gray">Diretor de Operações (COO)</div>
+                            <h2 class="text-3xl font-bold text-heika-white mb-4">Heitor</h2>
+                            <p class="text-heika-gray text-base leading-relaxed font-light">
+                                Estrategista corporativo. Traduz a complexidade da necessidade da sua empresa em requisitos precisos de produto. Garante as entregas, orquestra os fluxos operacionais e assegura que o software final cause um impacto financeiro claro e mensurável no seu negócio.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="contato" class="page-section py-32 relative">
-            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-heika-blue/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div id="contato" class="page-section py-24 md:py-32 relative">
+            <div class="absolute right-0 top-1/4 w-[600px] h-[600px] bg-heika-blue/10 blur-[150px] rounded-full pointer-events-none"></div>
             
-            <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 relative z-10">
+            <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 relative z-10 items-center">
                 <div class="reveal">
-                    <h1 class="text-4xl md:text-6xl font-bold text-gradient mb-8 leading-[1.1]">Vamos construir algo extraordinário.</h1>
-                    <p class="text-xl text-heika-gray mb-12 font-light leading-relaxed">
-                        Seja para desenvolver um sistema complexo, criar a presença digital da sua marca ou reestruturar a infraestrutura do seu negócio, estamos prontos.
+                    
+                    <img src="logo.png" alt="HEIKA" class="h-14 mb-10 object-contain drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]">
+                    
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-gradient mb-8 leading-[1.05] tracking-tight">Implementando<br>Excelência.</h1>
+                    <p class="text-xl md:text-2xl text-heika-gray mb-12 font-light leading-relaxed max-w-lg">
+                        Inicie o diálogo com nossos engenheiros. Nós analisamos a sua operação e enviamos uma proposta técnica de alto impacto.
                     </p>
                     
                     <div class="space-y-6">
-                        <a href="https://wa.me/5511999999999" target="_blank" class="premium-card flex items-center gap-5 p-5 border border-white/5 rounded-2xl group cursor-pointer hover:border-[#25D366]/40 transition-all duration-300">
-                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-2xl group-hover:bg-[#25D366] group-hover:text-white group-hover:border-[#25D366] transition-all duration-300 shadow-lg shadow-transparent group-hover:shadow-[#25D366]/20">
+                        <a href="https://wa.me/5511999999999" target="_blank" class="premium-card flex items-center gap-6 p-6 border border-white/5 rounded-2xl group cursor-pointer hover:border-[#25D366]/40 transition-all duration-300 w-full max-w-md">
+                            <div class="w-14 h-14 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl flex items-center justify-center text-2xl text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
                                 <i class="ph-fill ph-whatsapp-logo"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-heika-white text-lg">WhatsApp Direto</h4>
-                                <p class="text-sm text-heika-gray font-light">Atendimento rápido para tirar dúvidas.</p>
+                                <h4 class="font-bold text-heika-white text-lg">WhatsApp Executivo</h4>
+                                <p class="text-sm text-heika-gray font-light">Resposta técnica e comercial imediata.</p>
                             </div>
                         </a>
                         
-                        <div class="premium-card flex items-center gap-5 p-5 border border-white/5 rounded-2xl">
-                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-2xl text-heika-blue">
+                        <div class="flex items-center gap-6 p-6">
+                            <div class="w-14 h-14 border border-white/5 rounded-xl flex items-center justify-center text-2xl text-heika-gray">
                                 <i class="ph-fill ph-envelope-simple"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-heika-white text-lg">E-mail Comercial</h4>
-                                <p class="text-sm text-heika-gray font-light">contato@heika.com.br</p>
+                                <p class="text-sm text-heika-gray font-light tracking-wide">contato@heika.com.br</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-100 bg-[#0A0A0E]/80 backdrop-blur-xl border border-white/10 p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heika-blue to-purple-600"></div>
+                <div class="reveal delay-100 bg-[#0A0A0E]/90 backdrop-blur-2xl border border-white/10 p-10 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-heika-blue via-heika-blueLight to-transparent"></div>
                     
-                    <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');" class="space-y-6">
+                    <h3 class="text-2xl font-bold text-heika-white mb-8">Solicitar Arquitetura</h3>
+                    
+                    <form onsubmit="event.preventDefault(); alert('Solicitação recebida com sucesso!');" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-xs font-semibold uppercase tracking-widest text-heika-gray mb-2">Nome Completo</label>
-                                <input type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3.5 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-heika-gray mb-2">Seu Nome</label>
+                                <input type="text" required class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all font-light">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase tracking-widest text-heika-gray mb-2">Empresa</label>
-                                <input type="text" class="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3.5 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-heika-gray mb-2">Empresa</label>
+                                <input type="text" class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all font-light">
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-xs font-semibold uppercase tracking-widest text-heika-gray mb-2">E-mail Profissional</label>
-                                <input type="email" required class="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3.5 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-heika-gray mb-2">E-mail Corporativo</label>
+                                <input type="email" required class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all font-light">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase tracking-widest text-heika-gray mb-2">WhatsApp</label>
-                                <input type="tel" class="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3.5 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-heika-gray mb-2">Telefone / WhatsApp</label>
+                                <input type="tel" class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all font-light">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-semibold uppercase tracking-widest text-heika-gray mb-2">O que você precisa?</label>
-                            <select class="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3.5 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all appearance-none cursor-pointer">
-                                <option class="bg-[#0A0A0E]">Sistemas Web / SaaS</option>
-                                <option class="bg-[#0A0A0E]">Site ou Landing Page de Alta Conversão</option>
-                                <option class="bg-[#0A0A0E]">Integrações e Automações</option>
-                                <option class="bg-[#0A0A0E]">Infraestrutura de TI</option>
-                                <option class="bg-[#0A0A0E]">Outro</option>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-heika-gray mb-2">Escopo do Projeto</label>
+                            <select class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all appearance-none cursor-pointer font-light">
+                                <option class="bg-[#0A0A0E]">Sistemas SaaS / Multi-tenant / Web Apps</option>
+                                <option class="bg-[#0A0A0E]">Site de Alta Performance / Headless Commerce</option>
+                                <option class="bg-[#0A0A0E]">Integração de APIs / Dashboards / Dados</option>
+                                <option class="bg-[#0A0A0E]">Infraestrutura Física Corporativa</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-semibold uppercase tracking-widest text-heika-gray mb-2">Detalhes do Projeto</label>
-                            <textarea rows="4" required class="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3.5 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all resize-none placeholder:text-white/20" placeholder="Conte-nos brevemente o desafio que sua empresa está enfrentando..."></textarea>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-heika-gray mb-2">Briefing Executivo</label>
+                            <textarea rows="4" required class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-heika-white focus:outline-none focus:border-heika-blue focus:bg-white/[0.05] transition-all resize-none font-light placeholder:text-white/10" placeholder="Qual gargalo a tecnologia precisa resolver na sua empresa hoje?"></textarea>
                         </div>
 
-                        <button type="submit" class="w-full btn-primary text-white font-semibold py-4 rounded-lg transition-colors flex items-center justify-center gap-2 group mt-4">
-                            Enviar Solicitação <i class="ph ph-paper-plane-right group-hover:translate-x-1 transition-transform"></i>
+                        <button type="submit" class="w-full btn-primary text-white font-bold py-5 rounded-xl transition-colors flex items-center justify-center gap-3 group mt-4 shadow-2xl">
+                            Enviar Solicitação <i class="ph ph-terminal-window group-hover:scale-110 transition-transform"></i>
                         </button>
                     </form>
                 </div>
@@ -671,14 +658,14 @@
 
         <section id="global-cta" class="w-full py-32 relative overflow-hidden border-t border-white/5">
             <div class="absolute inset-0 bg-heika-blue/[0.02]"></div>
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-heika-blue/10 blur-[120px] rounded-full pointer-events-none"></div>
             
-            <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
-                <h2 class="text-4xl md:text-6xl font-bold text-gradient mb-8">Pronto para o próximo nível?</h2>
-                <p class="text-heika-gray mb-12 text-lg md:text-xl font-light">Agende uma conversa estratégica e descubra como nossa arquitetura pode impulsionar seu negócio.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-5">
-                    <button onclick="navigate('contato')" class="btn-primary text-white px-10 py-4 rounded-lg font-medium transition-all flex justify-center items-center gap-2 group text-base">
-                        Solicitar Proposta <i class="ph ph-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center reveal">
+                <img src="logo.png" alt="HEIKA" class="h-12 mb-8 mx-auto opacity-80 drop-shadow-[0_0_10px_rgba(37,99,235,0.4)]">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gradient mb-8 tracking-tight">Escale Sem Limites.</h2>
+                <p class="text-heika-gray mb-12 text-xl font-light">A arquitetura ideal separa líderes de mercado dos amadores. Qual lado você escolhe?</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <button onclick="navigate('contato')" class="bg-white text-black hover:bg-gray-200 px-10 py-5 rounded-xl font-bold transition-all flex justify-center items-center gap-3 text-base shadow-2xl">
+                        Começar Agora <i class="ph ph-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -686,98 +673,89 @@
 
     </main>
 
-    <footer class="border-t border-white/5 bg-[#050508] py-16 relative overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-            <div class="md:col-span-1">
-                <a href="#" onclick="navigate('home')" class="text-2xl font-bold tracking-tight text-heika-white mb-6 block">
-                    HEIKA<span class="text-heika-blue">.</span>
-                </a>
-                <p class="text-heika-gray/70 text-sm leading-relaxed font-light mb-6">
-                    Desenvolvimento de software de ponta, interfaces modernas e infraestrutura sólida para empresas que exigem excelência técnica.
+    <footer class="border-t border-white/5 bg-[#030304] pt-20 pb-10 relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10 mb-20">
+            
+            <div class="md:col-span-4">
+                <img src="logo.png" alt="HEIKA SOLUCTIONS LTDA" class="h-10 mb-8 cursor-pointer drop-shadow-[0_0_8px_rgba(37,99,235,0.3)]" onclick="navigate('home')">
+                <p class="text-heika-gray/60 text-sm leading-relaxed font-light mb-8 max-w-xs">
+                    Engenharia de ecossistemas digitais. Construímos software escalável, interfaces de alta conversão e infraestrutura resiliente.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-heika-gray hover:text-white hover:bg-white/10 transition-all border border-white/5"><i class="ph-fill ph-instagram-logo"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-heika-gray hover:text-white hover:bg-white/10 transition-all border border-white/5"><i class="ph-fill ph-linkedin-logo"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-heika-gray hover:text-white hover:bg-white/10 transition-all border border-white/5"><i class="ph-fill ph-github-logo"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/[0.02] flex items-center justify-center text-heika-gray hover:text-white hover:bg-white/10 hover:border-white/20 transition-all border border-white/5"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/[0.02] flex items-center justify-center text-heika-gray hover:text-white hover:bg-white/10 hover:border-white/20 transition-all border border-white/5"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/[0.02] flex items-center justify-center text-heika-gray hover:text-white hover:bg-white/10 hover:border-white/20 transition-all border border-white/5"><i class="ph-fill ph-github-logo"></i></a>
                 </div>
             </div>
             
-            <div>
-                <h4 class="text-heika-white font-semibold mb-6 uppercase tracking-widest text-xs">Empresa</h4>
+            <div class="md:col-span-2 md:col-start-6">
+                <h4 class="text-heika-white font-bold mb-6 text-xs uppercase tracking-widest">Empresa</h4>
                 <ul class="space-y-4 text-sm text-heika-gray/80 font-light">
-                    <li><a href="#" onclick="navigate('sobre')" class="hover:text-heika-white transition-colors flex items-center gap-2"><i class="ph ph-caret-right text-xs"></i> Sobre nós</a></li>
-                    <li><a href="#" onclick="navigate('projetos')" class="hover:text-heika-white transition-colors flex items-center gap-2"><i class="ph ph-caret-right text-xs"></i> Portfólio</a></li>
-                    <li><a href="#" onclick="navigate('equipe')" class="hover:text-heika-white transition-colors flex items-center gap-2"><i class="ph ph-caret-right text-xs"></i> Liderança</a></li>
+                    <li><a href="#" onclick="navigate('sobre')" class="hover:text-heika-white transition-colors">Nosso Manifesto</a></li>
+                    <li><a href="#" onclick="navigate('equipe')" class="hover:text-heika-white transition-colors">Diretoria</a></li>
+                    <li><a href="#" onclick="navigate('projetos')" class="hover:text-heika-white transition-colors">Cases de Sucesso</a></li>
                 </ul>
             </div>
             
-            <div>
-                <h4 class="text-heika-white font-semibold mb-6 uppercase tracking-widest text-xs">Expertise</h4>
+            <div class="md:col-span-2">
+                <h4 class="text-heika-white font-bold mb-6 text-xs uppercase tracking-widest">Soluções</h4>
                 <ul class="space-y-4 text-sm text-heika-gray/80 font-light">
-                    <li><a href="#" class="hover:text-heika-white transition-colors flex items-center gap-2"><i class="ph ph-caret-right text-xs"></i> Sistemas Multi-tenant</a></li>
-                    <li><a href="#" class="hover:text-heika-white transition-colors flex items-center gap-2"><i class="ph ph-caret-right text-xs"></i> Sites Alta Conversão</a></li>
-                    <li><a href="#" class="hover:text-heika-white transition-colors flex items-center gap-2"><i class="ph ph-caret-right text-xs"></i> Automação via APIs</a></li>
+                    <li><a href="#" onclick="navigate('solucoes')" class="hover:text-heika-white transition-colors">Sistemas e SaaS</a></li>
+                    <li><a href="#" onclick="navigate('solucoes')" class="hover:text-heika-white transition-colors">Sites Alta Performance</a></li>
+                    <li><a href="#" onclick="navigate('servicos')" class="hover:text-heika-white transition-colors">DevOps & Infraestrutura</a></li>
                 </ul>
             </div>
             
-            <div>
-                <h4 class="text-heika-white font-semibold mb-6 uppercase tracking-widest text-xs">Contato Rápido</h4>
+            <div class="md:col-span-2">
+                <h4 class="text-heika-white font-bold mb-6 text-xs uppercase tracking-widest">Contato</h4>
                 <ul class="space-y-4 text-sm text-heika-gray/80 font-light">
-                    <li class="flex items-center gap-3"><i class="ph-fill ph-envelope-simple text-heika-blue text-lg"></i> contato@heika.com.br</li>
-                    <li class="flex items-center gap-3"><i class="ph-fill ph-whatsapp-logo text-[#25D366] text-lg"></i> (11) 99999-9999</li>
+                    <li class="hover:text-white transition-colors cursor-pointer" onclick="navigate('contato')">contato@heika.com.br</li>
+                    <li class="hover:text-white transition-colors cursor-pointer">+55 11 99999-9999</li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-            <p class="text-xs text-heika-gray/40 font-mono tracking-wider">&copy; 2026 HEIKA TECNOLOGIA. ALL RIGHTS RESERVED.</p>
-            <div class="flex items-center gap-2 text-xs text-heika-gray/40 font-mono">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Systems Operational
+        
+        <div class="max-w-7xl mx-auto px-6 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <p class="text-[11px] text-heika-gray/40 font-mono tracking-widest uppercase">&copy; 2026 HEIKA SOLUCTIONS LTDA. TODOS OS DIREITOS RESERVADOS.</p>
+            <div class="flex items-center gap-3 text-[11px] text-heika-gray/40 font-mono tracking-wider border border-white/5 bg-white/[0.01] px-3 py-1.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#27C93F] animate-pulse"></span> TODOS OS SISTEMAS OPERACIONAIS
             </div>
         </div>
     </footer>
 
     <script>
-        // Setup Intersection Observer for scroll reveal animations
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
+        // Sistema de Revelação Suave (Scroll Reveal)
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("active-reveal");
-                    observer.unobserve(entry.target); // Anima apenas uma vez para performance
+                    observer.unobserve(entry.target); 
                 }
             });
-        }, revealOptions);
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
         function triggerAnimations() {
             document.querySelectorAll(".reveal").forEach(el => {
-                el.classList.remove("active-reveal"); // Reseta a animação
+                el.classList.remove("active-reveal"); 
                 revealObserver.observe(el);
             });
         }
 
-        // Navegação SPA simulada
+        // Navegação SPA
         function navigate(pageId) {
-            // Oculta todas
             document.querySelectorAll('.page-section').forEach(el => {
                 el.classList.remove('active');
             });
             
-            // Exibe a correta
             const target = document.getElementById(pageId);
             if(target) {
                 target.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Dispara animações com leve atraso para permitir o block display
                 setTimeout(triggerAnimations, 50);
             }
 
-            // Update Nav Links Active State
+            // Sincronizar Links Ativos na Navbar
             document.querySelectorAll('.nav-link').forEach(link => {
                 if(link.getAttribute('data-target') === pageId) {
                     link.classList.add('text-heika-white');
@@ -788,24 +766,24 @@
                 }
             });
 
-            // Esconder CTA Global na página de Contato
+            // Ocultar CTA Global na página de Contato
             const cta = document.getElementById('global-cta');
             if (cta) cta.style.display = pageId === 'contato' ? 'none' : 'block';
         }
 
-        // Navbar blur behavior on scroll
+        // Navbar Dinâmica com Glassmorphism
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                nav.classList.add('shadow-xl', 'bg-heika-black/80');
+            if (window.scrollY > 30) {
+                nav.classList.add('shadow-2xl', 'bg-heika-black/80', 'backdrop-blur-2xl');
                 nav.classList.remove('bg-heika-black/70');
             } else {
-                nav.classList.remove('shadow-xl', 'bg-heika-black/80');
+                nav.classList.remove('shadow-2xl', 'bg-heika-black/80');
                 nav.classList.add('bg-heika-black/70');
             }
         });
 
-        // Mobile Menu Toggle
+        // Toggle do Menu Mobile
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -821,7 +799,7 @@
             }
         }
 
-        // Initialize no load
+        // Inicializar Sistema
         document.addEventListener("DOMContentLoaded", () => {
             navigate('home');
         });
